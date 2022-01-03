@@ -12,12 +12,13 @@ verify () {
     done
 }
 
+time="$(date +%y%m%d_%H%M%S)"
 # ---------------- zshrc start ----------------
 echo "setting up zsh"
 if [ -e ~/.zshrc ]
 then
-    echo "~/.zshrc exists, backup to ./zshrc_backup"
-    mv ~/.zshrc ./zshrc_backup
+    echo "~/.zshrc exists, backup to ./zshrc_backup-$time"
+    mv ~/.zshrc ./zshrc_backup-$time
 fi
 ln ./zshrc ~/.zshrc
 
