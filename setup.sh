@@ -26,10 +26,12 @@ ln ./zshrc ~/.zshrc
 verify "Are you running on arch-based linux? (Y/n)"
 if [[ $? == 1 ]]
 then
-    sudo pacman -Syu zsh-syntax-highlighting
+    sudo pacman -S zsh-syntax-highlighting
 else
     echo -e "\e[1;31mPlease find zsh-syntax-highlighting https://github.com/zsh-users/zsh-syntax-highlighting suitable for your distro\e[0m"
 fi
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-git clone https://github.com/qndydyhm/zsh-ssh ~/.zsh/zsh-ssh
+echo "finish install plugins"
+chsh -s /bin/zsh
+echo "set zsh as default shell"
 # ---------------- zshrc end ----------------
