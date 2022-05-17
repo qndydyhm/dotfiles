@@ -2,10 +2,11 @@
 HISTFILE=~/.histfile
 HISTSIZE=10000
 SAVEHIST=10000
-bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
+# ignore common commands
+HISTORY_IGNORE='([bf]g *|cd *|l[a,l,s,h,]*)'
 
 autoload -Uz compinit
 compinit
@@ -24,16 +25,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 # Auto suggestion https://github.com/zsh-users/zsh-autosuggestions
 source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# SSH auto completion https://github.com/qndydyhm/zsh-ssh
-source ~/.zsh/zsh-ssh/zsh-ssh.zsh
-
-# History search
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
 
 alias ls='ls --color=always'
 alias ll='ls --color=always -lh'
